@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="../css/Style.css">
+    <script>
+        function Delete(e) {
+            let items = [];
+            JSON.parse(localStorage.getItem('items')).map(data => {
+                if (data.id != e.parentElement.parentElement.children[0].textContent) {
+
+                    items.push(data);
+                }
+            });
+            localStorage.setItem('items', JSON.stringify(items));
+            window.location.reload();
+        };
+    </script>
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <a href="../pages/Homepage.html" class="logo"> <i class="fas fa-lightbulb"></i> furniture </a>
+
+        <form action="" class="search-form">
+            <input type="search" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-cart iconShopping">
+                <p>0</p>
+            </div>
+            <div id="login-btn" class="fas fa-user"></div>
+        </div>
+
+    </header>
+
+    <!-- header section ends  -->
+
+    <!-- closer btn  -->
+
+    <div id="closer" class="fas fa-times"></div>
+
+    <!-- navbar  -->
+
+    <nav class="navbar">
+        <a href="../pages/Homepage.html">home</a>
+        <a href="../pages/Shop.html">shop</a>
+        <a href="../pages/About.html">about</a>
+        <a href="../pages/Contact.html">contact</a>
+    </nav>
+
+    <!-- shopping cart  -->
+    <div class="cartBox">
+        <div class="cart">
+            <i class="fa fa-close"></i>
+            <table class="table-content">
+
+            </table>
+        </div>
+    </div>
+
+    <!-- login form  -->
+
+    <div class="login-form">
+
+        <form action="" class="form" id="login">
+            <h3>login form</h3>
+            <div class="form-message"></div>
+            <div class="form-input-group">
+                <input type="email" id="emailid" placeholder="enter your email" class="box">
+                <span id="emailError" class="text-danger "></span>
+            </div>
+            <div>
+                <input type="password" id="pass" placeholder="enter your password" class="box">
+                <span id="passError" class="text-danger "></span>
+            </div>
+            <div class="remember">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me">remember me</label>
+            </div>
+            <a href="../pages/Shop.html"><button class="btn" type="submit" value="continue">continue</button></a>
+            <p class="form-text">
+                <a href="#" class="form-link">Forgot your password?</a>
+            </p>
+            <p class="form-text">
+                <a class="form-link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
+            </p>
+        </form>
+        <form action="" class="form form-hidden" id="createAccount" onsubmit="return validation()">
+            <h3>Create Account</h3>
+            <div class="form-message"></div>
+            <div class="form-input-group">
+                <input type="text" id="username" class="form-input" autofocus placeholder="Username">
+                <span id="userError" class="text-danger "></span>
+            </div>
+            <div class="form-input-group">
+                <input type="email" id="email" class="form-input" autofocus placeholder="Email Address">
+                <span id="emailError" class="text-danger "></span>
+            </div>
+            <div class="form-input-group">
+                <input type="password" id="password" class="form-input" autofocus placeholder="Password">
+                <span id="passError" class="text-danger "></span>
+            </div>
+            <div class="form-input-group">
+                <input type="cPassword" id="cPassword" class="form-input" autofocus placeholder="Confirm password">
+                <span id="cpassError" class="text-danger "></span>
+            </div>
+            <button class="btn" type="submit">Continue</button>
+            <p class="form-text">
+                <a href="#" class="form-link">Forgot your password?</a>
+            </p>
+            <p class="form-text">
+                <a class="form-link" href="./" id="linkLogin">Already have an account? Sign in</a>
+            </p>
+        </form>
+    </div>
+    <!-- login ends  -->
+    <section class="home">
+        <div class="slides-container">
+            <div class="slide active">
+                <div class="content">
+                    <span>New Arrivals</span>
+                    <h3>Wooden Chair</h3>
+                    <p>High-back executive chair for big and tall users; commercial-grade components; supports up to
+                        158.75 KGS
+                        Upholstered in bonded brown leather; adjustable lumbar mechanism for lower-back support; curved
+                        arm rests</p>
+                    <a href="../pages/Shop.html" class="btn"> Shop Now </a>
+                </div>
+                <div class="image">
+                    <img src="../assets/home/home-img-1.png" alt="">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <span>New Arrivals</span>
+                    <h3>Sofa Coach</h3>
+                    <p>High-back executive chair for big and tall users; commercial-grade components; supports up to
+                        158.75 KGS
+                        Upholstered in bonded brown leather; adjustable lumbar mechanism for lower-back support; curved
+                        arm rests</p>
+                    <a href="../pages/Shop.html" class="btn"> Shop Now </a>
+                </div>
+                <div class="image">
+                    <img src="../assets/home/home-img-2.png" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- banner starts  -->
+    <section class="banner-container">
+        <div class="banner">
+            <img src="../assets/banner/banner-1.jpg" alt="">
+            <div class="content">
+                <span>Limited Offer</span>
+                <h3>upto 50% off</h3>
+                <a href="../pages/Shop.html" class="btn">Shop Now</a>
+            </div>
+        </div>
+        <div class="banner">
+            <img src="../assets/banner/banner-2.jpg" alt="">
+            <div class="content">
+                <span>Limited Offer</span>
+                <h3>upto 50% off</h3>
+                <a href="../pages/Shop.html" class="btn">Shop Now</a>
+            </div>
+        </div>
+        <div class="banner">
+            <img src="../assets/banner/banner-3.jpg" alt="">
+            <div class="content">
+                <span>Limited Offer</span>
+                <h3>upto 50% off</h3>
+                <a href="../pages/Shop.html" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer section  -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Quick links</h3>
+                <a href="../pages/Homepage.html"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="../pages/Shop.html"> <i class="fas fa-arrow-right"></i> shop</a>
+                <a href="../pages/About.html"> <i class="fas fa-arrow-right"></i> about</a>
+                <a href="../pages/Contact.html"> <i class="fas fa-arrow-right"></i> contact</a>
+            </div>
+            <div class="box">
+                <h3>Extra links</h3>
+                <a href="#"><i class="fas fa-arrow-right"></i> My Order</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Wishlist</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Account</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Favourite</a>
+            </div>
+            <div class="box">
+                <h3>Extra links</h3>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://linkedin.com/"><i class="fab fa-linkedIn"></i> linkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

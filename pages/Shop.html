@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="../css/Style.css">
+    <script>		
+		function Delete(e){
+			let items = [];
+			JSON.parse(localStorage.getItem('items')).map(data=>{
+				if(data.id != e.parentElement.parentElement.children[0].textContent){				
+					items.push(data);
+				}
+			});
+			localStorage.setItem('items',JSON.stringify(items));
+			window.location.reload();
+		};
+	</script>
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <a href="../pages/Homepage.html" class="logo"> <i class="fas fa-lightbulb"></i> furniture </a>
+
+        <form action="" class="search-form">
+            <input type="search" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-cart iconShopping"><p>0</p></div>
+            <div id="login-btn" class="fas fa-user"></div>
+        </div>
+
+    </header>
+
+    <!-- header section ends  -->
+
+    <!-- closer btn  -->
+
+    <div id="closer" class="fas fa-times"></div>
+
+    <!-- navbar  -->
+
+    <nav class="navbar">
+        <a href="../pages/Homepage.html">home</a>
+        <a href="../pages/Shop.html">shop</a>
+        <a href="../pages/About.html">about</a>
+        <a href="../pages/Contact.html">contact</a>
+    </nav>
+
+    <!-- shopping cart  -->
+
+    <div class="cartBox">
+        <div class="cart">
+            <i class="fa fa-close"></i>
+            <table class="table-content">
+                
+            </table>
+        </div>
+    </div>
+
+    <!-- login form  -->
+  
+    <div class="login-form">
+
+        <form action="" class="form" id="login">
+            <h3>login form</h3>
+            <div class="form-message"></div>
+            <div class="form-input-group">
+                <input type="email" id="email" placeholder="enter your email" class="box">
+                <span id="emailError" class="text-danger "></span>
+            </div>
+            <div>
+                <input type="password" id="password" placeholder="enter your password" class="box">
+                <span id="passError" class="text-danger "></span>
+            </div>
+            <div class="remember">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me">remember me</label>
+            </div>
+            <button class="btn" type="submit" onclick="login()">Continue</button>
+            <p class="form-text">
+                <a href="#" class="form-link">Forgot your password?</a>
+            </p>
+            <p class="form-text">
+                <a class="form-link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
+            </p>
+        </form>
+        <form action="" class="form form-hidden" id="createAccount" onsubmit="return validation()">
+            <h3>Create Account</h3>
+            <div class="form-message"></div>
+            <div class="form-input-group">
+                <input type="text" id="username" class="form-input" autofocus placeholder="Username">
+                <span id="userError" class="text-danger "></span>
+            </div>
+            <div class="form-input-group">
+                <input type="email" id="email" class="form-input" autofocus placeholder="Email Address">
+                <span id="emailError" class="text-danger "></span>
+            </div>
+            <div class="form-input-group">
+                <input type="password" id="password" class="form-input" autofocus placeholder="Password">
+                <span id="passError" class="text-danger "></span>
+            </div>
+            <div class="form-input-group">
+                <input type="cPassword" id="cPassword" class="form-input" autofocus placeholder="Confirm password">
+                <span id="cpassError" class="text-danger "></span>
+            </div>
+            <button class="btn" type="submit">Continue</button>
+            <p class="form-text">
+                <a href="#" class="form-link">Forgot your password?</a>
+            </p>
+            <p class="form-text">
+                <a class="form-link" href="./" id="linkLogin">Already have an account? Sign in</a>
+            </p>
+        </form>
+    </div>
+
+    <section class="heading">
+        <h3>Our Shop</h3>
+        <p><a href="../pages/Homepage.html">home</a>/ <span>Shop</span> </p>
+    </section>
+
+    <section class="category">
+        <h1 class="title"><span>Our Categories </span><a href="#">View All>></a></h1>
+        <div class="box-container">
+            <a href="#" class="box">
+                <img src="../assets/category/icon-1.png" alt="">
+                <h3>House Sofa</h3>
+            </a>
+            <a href="#" class="box">
+                <img src="../assets/category/icon-2.png" alt="">
+                <h3>Working Table</h3>
+            </a>
+            <a href="#" class="box">
+                <img src="../assets/category/icon-3.png" alt="">
+                <h3>Corner Table</h3>
+            </a>
+            <a href="#" class="box">
+                <img src="../assets/category/icon-4.png" alt="">
+                <h3>Office Chair</h3>
+            </a>
+            <a href="#" class="box">
+                <img src="../assets/category/icon-5.png" alt="">
+                <h3>New Wardrobe</h3>
+            </a>
+        </div>
+    </section>
+    
+    <section class="products">
+        <h1 class="title"><span>Our Products</span><a href="#">View All>></a></h1>
+
+        <div class="box-container">
+            <div class="box">
+                <div class="image">
+                    <img src="../assets/product/product-1.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Table Lamp</h3>
+                    <div class="price">Rs.5000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(50)</span>
+                    </div>
+                    <a href="#" title="add to cart" class="addToCart">Add To Cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="../assets/product/product-2.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Sofa</h3>
+                    <div class="price">Rs. 8000</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(50)</span>
+                    </div>
+                    <a href="#" title="add to cart" class="addToCart">Add To Cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="../assets/product/product-3.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Mini cupboard</h3>
+                    <div class="price">$Rs. 4599</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(50)</span>
+                    </div>
+                    <a href="#" title="add to cart" class="addToCart">Add To Cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="../assets/product/product-4.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Chair with Pillow</h3>
+                    <div class="price">Rs. 2500</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(50)</span>
+                    </div>
+                    <a href="#" title="add to cart" class="addToCart">Add To Cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="../assets/product/product-5.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>wooden Chair</h3>
+                    <div class="price">Rs. 1799</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(50)</span>
+                    </div>
+                    <a href="#" title="add to cart" class="addToCart">Add To Cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="../assets/product/product-6.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Lamp</h3>
+                    <div class="price">Rs. 988</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(50)</span>
+                    </div>
+                    <a href="#" title="add to cart" class="addToCart">Add To Cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="../assets/product/product-7.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Stylish Sofa</h3>
+                    <div class="price">Rs. 3599</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(50)</span>
+                    </div>
+                    <a href="#" title="add to cart" class="addToCart">Add To Cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="../assets/product/product-8.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Modern Chair</h3>
+                    <div class="price">Rs. 999</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(50)</span>
+                    </div>
+                    <a href="#" title="add to cart" class="addToCart">Add To Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     <!-- footer section  -->
+     <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Quick links</h3>
+                <a href="../pages/Homepage.html"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="../pages/Shop.html"> <i class="fas fa-arrow-right"></i> shop</a>
+                <a href="../pages/About.html"> <i class="fas fa-arrow-right"></i> about</a>
+                <a href="../pages/Contact.html"> <i class="fas fa-arrow-right"></i> contact</a>
+            </div>
+            <div class="box">
+                <h3>Extra links</h3>
+                <a href="#"><i class="fas fa-arrow-right"></i> My Order</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Wishlist</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Account</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Favourite</a>
+            </div>
+            <div class="box">
+                <h3>Extra links</h3>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://linkedin.com/"><i class="fab fa-linkedIn"></i> linkedIn</a>
+            </div>
+        </div>
+    </section>
+    <script src="../js/script.js"></script>
+    <script src="../js/database.js"></script>
+</body>
