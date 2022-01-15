@@ -94,7 +94,6 @@ function login(){
     window.location.href= "../pages/Shop.html"  
 }
 
-
 window.onload = function () {
     //cart box
     const iconShopping = document.querySelector('.iconShopping');
